@@ -155,8 +155,7 @@ body {
     height: 100%;
     display: none;
     flex-direction: column;
-    padding: calc(2rem + env(safe-area-inset-top)) 1.5rem calc(2rem + env(safe-area-inset-bottom)) 1.5rem;
-    overflow-y: auto;
+    overflow: hidden;
     background: radial-gradient(circle at bottom left, #0e201b 0%, var(--bg-obsidian) 70%);
 }
 
@@ -168,6 +167,8 @@ body {
     display: none;
     flex-direction: column;
     height: 100%;
+    padding: calc(2rem + env(safe-area-inset-top)) 1.5rem calc(2rem + env(safe-area-inset-bottom)) 1.5rem;
+    overflow-y: auto;
     animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
@@ -420,6 +421,9 @@ body {
 }
 
 /* Navigation inside onboarding */
+#btn-start-onboarding {
+    margin-top: auto;
+}
 .onboarding-nav {
     display: flex;
     gap: 1rem;
@@ -1483,6 +1487,29 @@ body {
 }
 .divider-text::before { margin-right: .5em; }
 .divider-text::after { margin-left: .5em; }
+
+/* Custom Modal Food Fields and Layout Adaptations */
+.modal-macros-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+}
+.modal-card .form-group {
+    margin-bottom: 1rem;
+}
+.modal-card input {
+    padding: 0.65rem 0.75rem !important;
+    font-size: 0.95rem !important;
+}
+/* Hide number input spinners for cleaner input look in modal */
+.modal-card input[type="number"]::-webkit-outer-spin-button,
+.modal-card input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.modal-card input[type="number"] {
+    -moz-appearance: textfield;
+}
 
 /* Active workout player trainer screen */
 .workout-player-overlay {
