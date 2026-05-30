@@ -3,618 +3,589 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FitAI Coach — Твій персональний ШІ-тренер</title>
-    <!-- Google Fonts: Outfit & Inter -->
+    <title>AI Fitness Coach - Твій персональний тренер</title>
+    <meta name="description" content="Мобільний фітнес-коуч на базі штучного інтелекту. Підрахунок калорій, індивідуальні плани тренувань та харчування, чат з AI та детальна статистика.">
+    <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Material Symbols Rounded for clean modern icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <!-- Main Wrapper simulating mobile viewport on desktop, and 100% viewport on mobile -->
     <div class="mobile-frame">
-        <!-- ONBOARDING SECTION -->
-        <div id="onboarding-screen" class="screen active">
-            <div class="onboarding-header">
-                <div class="logo">
-                    <span class="material-symbols-rounded logo-icon">bolt</span>
-                    <span>FitAI <span class="accent-text">Coach</span></span>
-                </div>
-                <div class="progress-bar-container" style="display: none;">
-                    <div class="progress-bar-fill" id="onboarding-progress"></div>
-                </div>
-            </div>
-
-            <!-- Step 1: Welcome -->
-            <div class="onboarding-step active" data-step="1">
-                <div class="hero-image-container">
-                    <div class="hero-glow-1"></div>
-                    <div class="hero-glow-2"></div>
-                    <span class="material-symbols-rounded hero-main-icon">sports_gymnastics</span>
-                </div>
-                <h1 class="onboarding-title">Твій персональний фітнес-план за допомогою <span class="gradient-text">Штучного Інтелекту</span></h1>
-                <p class="onboarding-subtitle">Отримай індивідуальні плани тренувань, трекер калорій та цілодобову підтримку ШІ-тренера для досягнення твоїх цілей.</p>
-                <button class="btn btn-primary btn-large btn-next-step">Почати подорож <span class="material-symbols-rounded">arrow_forward</span></button>
-            </div>
-
-            <!-- Step 2: Name and Gender -->
-            <div class="onboarding-step" data-step="2">
-                <h2 class="step-title">Як до тебе звертатися?</h2>
-                <p class="step-subtitle">ШІ-тренер буде спілкуватися з тобою особисто.</p>
+        <div class="mobile-container">
+            
+            <!-- ================= ONBOARDING FLOW ================= -->
+            <section id="onboarding-flow" class="onboarding-container active">
                 
-                <div class="form-group">
-                    <label for="user-name" class="form-label">Твоє ім'я</label>
-                    <input type="text" id="user-name" class="form-input" placeholder="Введи ім'я" autocomplete="off">
+                <!-- Onboarding Step 1: Welcome -->
+                <div class="onboarding-step active" id="onboarding-step-1">
+                    <div class="brand-showcase">
+                        <div class="brand-logo">
+                            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="50" r="45" stroke="url(#logo-grad)" stroke-width="6" />
+                                <path d="M35 55L45 65L65 40" stroke="url(#logo-grad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                                <defs>
+                                    <linearGradient id="logo-grad" x1="0" y1="0" x2="100" y2="100">
+                                        <stop offset="0%" stop-color="#00E676" />
+                                        <stop offset="50%" stop-color="#6C5CE7" />
+                                        <stop offset="100%" stop-color="#FF5722" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h1 class="brand-title">FIT<span class="highlight">COACH</span></h1>
+                        <p class="brand-tagline">Твій розумний шлях до ідеальної форми</p>
+                    </div>
+
+                    <div class="welcome-features">
+                        <div class="feat-item">
+                            <span class="feat-icon">🎯</span>
+                            <div class="feat-details">
+                                <h3>Персоналізована програма</h3>
+                                <p>AI аналізує твої дані та будує ідеальний план тренувань</p>
+                            </div>
+                        </div>
+                        <div class="feat-item">
+                            <span class="feat-icon">🍎</span>
+                            <div class="feat-details">
+                                <h3>Підрахунок калорій</h3>
+                                <p>Легкий контроль харчування та балансу нутрієнтів</p>
+                            </div>
+                        </div>
+                        <div class="feat-item">
+                            <span class="feat-icon">💬</span>
+                            <div class="feat-details">
+                                <h3>AI-Тренер 24/7</h3>
+                                <p>Отримуй миттєві поради та коригування програми у чаті</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-next" id="btn-start-onboarding">
+                        Почати трансформацію
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </button>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-label">Твоя стать</label>
-                    <div class="gender-selection">
-                        <label class="gender-card">
-                            <input type="radio" name="gender" value="male" checked>
-                            <div class="gender-card-content">
-                                <span class="material-symbols-rounded">male</span>
+                <!-- Onboarding Step 2: Name & Gender -->
+                <div class="onboarding-step" id="onboarding-step-2">
+                    <div class="step-header">
+                        <div class="step-indicator">Крок 1 з 4</div>
+                        <h2>Як до тебе звертатися?</h2>
+                        <p>Це допоможе налаштувати персональні тренувальні рекомендації</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ob-name">Твоє ім'я</label>
+                        <input type="text" id="ob-name" placeholder="Введи ім'я" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Твоя стать</label>
+                        <div class="gender-selector">
+                            <div class="gender-card active" data-gender="male">
+                                <span class="gender-icon">🙋‍♂️</span>
                                 <span>Чоловік</span>
                             </div>
-                        </label>
-                        <label class="gender-card">
-                            <input type="radio" name="gender" value="female">
-                            <div class="gender-card-content">
-                                <span class="material-symbols-rounded">female</span>
+                            <div class="gender-card" data-gender="female">
+                                <span class="gender-icon">🙋‍♀️</span>
                                 <span>Жінка</span>
                             </div>
-                        </label>
+                        </div>
+                    </div>
+
+                    <div class="onboarding-nav">
+                        <button class="btn btn-secondary btn-back">Назад</button>
+                        <button class="btn btn-primary btn-next" id="btn-ob-step2-next">Далі</button>
                     </div>
                 </div>
 
-                <div class="step-navigation">
-                    <button class="btn btn-secondary btn-prev-step"><span class="material-symbols-rounded">arrow_back</span> Назад</button>
-                    <button class="btn btn-primary btn-next-step">Далі <span class="material-symbols-rounded">arrow_forward</span></button>
+                <!-- Onboarding Step 3: Metrics (Age, Height, Weight, Target Weight) -->
+                <div class="onboarding-step" id="onboarding-step-3">
+                    <div class="step-header">
+                        <div class="step-indicator">Крок 2 з 4</div>
+                        <h2>Твої параметри</h2>
+                        <p>Точні параметри необхідні для обчислення добового балансу калорій</p>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="form-group">
+                            <label for="ob-age">Вік (років)</label>
+                            <input type="number" id="ob-age" min="12" max="100" value="25">
+                        </div>
+                        <div class="form-group">
+                            <label for="ob-height">Ріст (см)</label>
+                            <input type="number" id="ob-height" min="100" max="250" value="175">
+                        </div>
+                        <div class="form-group">
+                            <label for="ob-weight">Вага зараз (кг)</label>
+                            <input type="number" id="ob-weight" min="30" max="200" value="70" step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label for="ob-target-weight">Цільова вага (кг)</label>
+                            <input type="number" id="ob-target-weight" min="30" max="200" value="65" step="0.1">
+                        </div>
+                    </div>
+
+                    <div class="onboarding-nav">
+                        <button class="btn btn-secondary btn-back">Назад</button>
+                        <button class="btn btn-primary btn-next" id="btn-ob-step3-next">Далі</button>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Step 3: Age, Weight, Height -->
-            <div class="onboarding-step" data-step="3">
-                <h2 class="step-title">Твої параметри</h2>
-                <p class="step-subtitle">Ці дані необхідні для точного розрахунку метаболізму та добової калорійності.</p>
-                
-                <div class="inputs-grid">
-                    <div class="form-group">
-                        <label for="user-age" class="form-label">Вік (років)</label>
-                        <input type="number" id="user-age" class="form-input" placeholder="25" min="12" max="100">
+                <!-- Onboarding Step 4: Goals & Activity -->
+                <div class="onboarding-step" id="onboarding-step-4">
+                    <div class="step-header">
+                        <div class="step-indicator">Крок 3 з 4</div>
+                        <h2>Твоя головна ціль</h2>
+                        <p>На основі цього вибору ми підберемо тренувальний та харчовий протоколи</p>
                     </div>
-                    <div class="form-group">
-                        <label for="user-height" class="form-label">Ріст (см)</label>
-                        <input type="number" id="user-height" class="form-input" placeholder="175" min="100" max="250">
-                    </div>
-                    <div class="form-group">
-                        <label for="user-weight" class="form-label">Поточна вага (кг)</label>
-                        <input type="number" id="user-weight" class="form-input" placeholder="70" min="30" max="250" step="0.1">
-                    </div>
-                    <div class="form-group">
-                        <label for="user-target-weight" class="form-label">Цільова вага (кг)</label>
-                        <input type="number" id="user-target-weight" class="form-input" placeholder="65" min="30" max="250" step="0.1">
-                    </div>
-                </div>
 
-                <div class="step-navigation">
-                    <button class="btn btn-secondary btn-prev-step"><span class="material-symbols-rounded">arrow_back</span> Назад</button>
-                    <button class="btn btn-primary btn-next-step">Далі <span class="material-symbols-rounded">arrow_forward</span></button>
-                </div>
-            </div>
-
-            <!-- Step 4: Fitness Goal -->
-            <div class="onboarding-step" data-step="4">
-                <h2 class="step-title">Яка твоя головна ціль?</h2>
-                <p class="step-subtitle">Ми підлаштуємо твою добову норму калорій та тренування під цю мету.</p>
-
-                <div class="options-list">
-                    <label class="option-card">
-                        <input type="radio" name="goal" value="weight-loss" checked>
-                        <div class="option-card-content">
-                            <span class="material-symbols-rounded icon-color-rose">fitness_center</span>
-                            <div class="option-text">
-                                <h3>Схуднення</h3>
-                                <p>Спалювання жиру та формування дефіциту калорій</p>
+                    <div class="goals-list">
+                        <div class="goal-card active" data-goal="lose">
+                            <span class="goal-card-emoji">⚡</span>
+                            <div class="goal-card-content">
+                                <h3>Схуднення та рельєф</h3>
+                                <p>Дефіцит калорій, жироспалення, кардіо-активності</p>
                             </div>
                         </div>
-                    </label>
-                    <label class="option-card">
-                        <input type="radio" name="goal" value="muscle-gain">
-                        <div class="option-card-content">
-                            <span class="material-symbols-rounded icon-color-emerald">sports_gymnastics</span>
-                            <div class="option-text">
+                        <div class="goal-card" data-goal="build">
+                            <span class="goal-card-emoji">💪</span>
+                            <div class="goal-card-content">
                                 <h3>Набір м'язової маси</h3>
-                                <p>Збільшення об'ємів, сили та профіцит калорій</p>
+                                <p>Профіцит калорій, силові тренування, гіпертрофія</p>
                             </div>
                         </div>
-                    </label>
-                    <label class="option-card">
-                        <input type="radio" name="goal" value="maintain">
-                        <div class="option-card-content">
-                            <span class="material-symbols-rounded icon-color-blue">health_and_safety</span>
-                            <div class="option-text">
-                                <h3>Підтримка форми</h3>
-                                <p>Збереження поточної ваги та тонусу м'язів</p>
+                        <div class="goal-card" data-goal="maintain">
+                            <span class="goal-card-emoji">🏃‍♀️</span>
+                            <div class="goal-card-content">
+                                <h3>Підтримка форми та здоров'я</h3>
+                                <p>Норма калорій, тонус м'язів, зміцнення серця</p>
                             </div>
                         </div>
-                    </label>
-                    <label class="option-card">
-                        <input type="radio" name="goal" value="endurance">
-                        <div class="option-card-content">
-                            <span class="material-symbols-rounded icon-color-yellow">explore</span>
-                            <div class="option-text">
-                                <h3>Розвиток витривалості</h3>
-                                <p>Покращення роботи серця та енергійності</p>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 1.5rem;">
+                        <label>Рівень щоденної активності</label>
+                        <div class="activity-selector">
+                            <div class="activity-option active" data-activity="low">
+                                <h4>Низький</h4>
+                                <p>Малорухливий спосіб життя, сидяча робота</p>
+                            </div>
+                            <div class="activity-option" data-activity="moderate">
+                                <h4>Середній</h4>
+                                <p>3-4 легкі активності або тренування на тиждень</p>
+                            </div>
+                            <div class="activity-option" data-activity="high">
+                                <h4>Високий</h4>
+                                <p>Силові чи інтенсивні навантаження 5+ разів на тиждень</p>
                             </div>
                         </div>
-                    </label>
-                </div>
+                    </div>
 
-                <div class="step-navigation">
-                    <button class="btn btn-secondary btn-prev-step"><span class="material-symbols-rounded">arrow_back</span> Назад</button>
-                    <button class="btn btn-primary btn-next-step">Далі <span class="material-symbols-rounded">arrow_forward</span></button>
-                </div>
-            </div>
-
-            <!-- Step 5: Activity & Training Style -->
-            <div class="onboarding-step" data-step="5">
-                <h2 class="step-title">Активність та умови</h2>
-                <p class="step-subtitle">Це допоможе ШІ визначити інтенсивність твоїх тренувань.</p>
-
-                <div class="form-group">
-                    <label for="user-activity" class="form-label">Спосіб життя (рівень активності)</label>
-                    <select id="user-activity" class="form-select">
-                        <option value="1.2">Сидячий (мінімум активності, робота за столом)</option>
-                        <option value="1.375">Помірний (легкі тренування 1-3 рази на тиждень)</option>
-                        <option value="1.55">Середній (інтенсивний спорт 3-5 разів на тиждень)</option>
-                        <option value="1.725">Високий (щоденні важкі тренування)</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Де ти плануєш тренуватися?</label>
-                    <div class="style-selection">
-                        <label class="style-card">
-                            <input type="radio" name="training-location" value="home" checked>
-                            <div class="style-card-content">
-                                <span class="material-symbols-rounded">home</span>
-                                <span>Вдома</span>
-                            </div>
-                        </label>
-                        <label class="style-card">
-                            <input type="radio" name="training-location" value="gym">
-                            <div class="style-card-content">
-                                <span class="material-symbols-rounded">apartment</span>
-                                <span>У залі</span>
-                            </div>
-                        </label>
+                    <div class="onboarding-nav">
+                        <button class="btn btn-secondary btn-back">Назад</button>
+                        <button class="btn btn-primary btn-finish" id="btn-ob-finish">Згенерувати план</button>
                     </div>
                 </div>
 
-                <div class="step-navigation">
-                    <button class="btn btn-secondary btn-prev-step"><span class="material-symbols-rounded">arrow_back</span> Назад</button>
-                    <button class="btn btn-primary btn-generate-plan">Створити мій план! <span class="material-symbols-rounded">auto_awesome</span></button>
-                </div>
-            </div>
-
-            <!-- Step 6: AI Loader Screen -->
-            <div class="onboarding-step" data-step="6">
-                <div class="ai-loader-container">
-                    <div class="ai-pulse-ring">
-                        <span class="material-symbols-rounded ai-brain-icon">psychology</span>
-                    </div>
-                    <h2 class="ai-loader-title">ШІ розраховує твій план...</h2>
-                    <p class="ai-loader-status" id="ai-loading-status">Аналіз анкети користувача...</p>
-                    
-                    <div class="ai-steps-checklist">
-                        <div class="checklist-item" id="chk-step-1">
-                            <span class="material-symbols-rounded status-icon">pending</span>
-                            <span>Аналіз фізичних параметрів</span>
+                <!-- Onboarding Step 5: AI Generation Loading Screen -->
+                <div class="onboarding-step" id="onboarding-step-loading">
+                    <div class="ai-generator-wrapper">
+                        <div class="ai-spinner">
+                            <div class="spinner-circle spinner-outer"></div>
+                            <div class="spinner-circle spinner-middle"></div>
+                            <div class="spinner-circle spinner-inner"></div>
+                            <div class="spinner-brain">🧠</div>
                         </div>
-                        <div class="checklist-item" id="chk-step-2">
-                            <span class="material-symbols-rounded status-icon">pending</span>
-                            <span>Розрахунок добової норми калорій</span>
-                        </div>
-                        <div class="checklist-item" id="chk-step-3">
-                            <span class="material-symbols-rounded status-icon">pending</span>
-                            <span>Формування меню харчування</span>
-                        </div>
-                        <div class="checklist-item" id="chk-step-4">
-                            <span class="material-symbols-rounded status-icon">pending</span>
-                            <span>Генерація плану тренувань</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- MAIN APPLICATION SECTION -->
-        <div id="main-app-screen" class="screen">
-            <header class="app-header">
-                <div class="app-branding">
-                    <span class="material-symbols-rounded logo-icon">bolt</span>
-                    <span>FitAI <span class="accent-text">Coach</span></span>
-                </div>
-                <div class="header-actions">
-                    <button class="header-btn" id="btn-reset-profile" title="Скинути профіль">
-                        <span class="material-symbols-rounded">restart_alt</span>
-                    </button>
-                    <div class="user-avatar" id="avatar-display">M</div>
-                </div>
-            </header>
-
-            <main class="app-content">
-                <!-- VIEW 1: DASHBOARD / CALORIES -->
-                <section id="dashboard-view" class="app-view active">
-                    <div class="welcome-banner">
-                        <div>
-                            <h2 class="user-greeting">Привіт, <span id="lbl-username">Користувач</span>!</h2>
-                            <p class="date-today" id="lbl-today-date">Субота, 30 травня</p>
-                        </div>
-                        <div class="badge-goal" id="lbl-user-goal-badge">Схуднення</div>
-                    </div>
-
-                    <!-- Calorie Card -->
-                    <div class="calorie-card card">
-                        <h3 class="card-title">Трекер калорій</h3>
+                        <h2 class="ai-loading-title">Зв'язуємось з AI Coach...</h2>
+                        <p class="ai-loading-subtitle">Створюємо твою унікальну програму здоров'я</p>
                         
-                        <div class="calorie-tracker-container">
-                            <div class="calorie-circle-outer">
-                                <svg class="progress-ring" width="160" height="160">
-                                    <circle class="progress-ring-circle-bg" stroke="#1c2538" stroke-width="12" fill="transparent" r="70" cx="80" cy="80"/>
-                                    <circle class="progress-ring-circle" id="calorie-progress-bar" stroke="url(#emerald-gradient)" stroke-width="12" stroke-linecap="round" fill="transparent" r="70" cx="80" cy="80"/>
-                                    <!-- Gradients definitions -->
+                        <div class="ai-loading-steps">
+                            <div class="loading-log-item" id="log-step-1">
+                                <span class="log-status">⏳</span>
+                                <span class="log-text">Аналіз фізичних параметрів та BMR...</span>
+                            </div>
+                            <div class="loading-log-item" id="log-step-2">
+                                <span class="log-status">⏳</span>
+                                <span class="log-text">Розрахунок балансу білків, жирів та вуглеводів...</span>
+                            </div>
+                            <div class="loading-log-item" id="log-step-3">
+                                <span class="log-status">⏳</span>
+                                <span class="log-text">Генерація програми тренувань за ціллю...</span>
+                            </div>
+                            <div class="loading-log-item" id="log-step-4">
+                                <span class="log-status">⏳</span>
+                                <span class="log-text">Складання збалансованого меню харчування...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ================= MAIN WEB APPLICATION FRAME ================= -->
+            <section id="main-app" class="app-container">
+                
+                <!-- APP HEADER -->
+                <header class="app-header">
+                    <div class="header-user">
+                        <div class="user-avatar" id="header-avatar">🚀</div>
+                        <div class="user-meta">
+                            <span class="user-greeting">Привіт,</span>
+                            <span class="user-name-display" id="header-user-name">Спортсмен</span>
+                        </div>
+                    </div>
+                    <button class="btn-reset-app" id="btn-reset-data" title="Скинути дані та перезапустити">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                        </svg>
+                    </button>
+                </header>
+
+                <!-- MAIN SCROLLABLE APP CONTENT AREA -->
+                <main class="app-content">
+
+                    <!-- PAGE 1: CALORIE TRACKER -->
+                    <div id="page-calories" class="app-page active">
+                        <div class="calories-hero">
+                            <div class="calories-ring-box">
+                                <svg class="progress-ring" width="180" height="180">
+                                    <circle class="progress-ring-circle-bg" stroke="#1E1E26" stroke-width="12" fill="transparent" r="75" cx="90" cy="90" />
+                                    <circle class="progress-ring-circle" id="calorie-progress-circle" stroke="url(#calories-grad)" stroke-width="12" stroke-dasharray="471.2" stroke-dashoffset="471.2" stroke-linecap="round" fill="transparent" r="75" cx="90" cy="90" />
                                     <defs>
-                                        <linearGradient id="emerald-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#10B981" />
-                                            <stop offset="100%" stop-color="#059669" />
-                                        </linearGradient>
-                                        <linearGradient id="rose-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#F43F5E" />
-                                            <stop offset="100%" stop-color="#BE123C" />
+                                        <linearGradient id="calories-grad" x1="0" y1="0" x2="1" y2="1">
+                                            <stop offset="0%" stop-color="#00E676" />
+                                            <stop offset="100%" stop-color="#6C5CE7" />
                                         </linearGradient>
                                     </defs>
                                 </svg>
-                                <div class="calorie-circle-text">
-                                    <span class="calorie-val" id="lbl-calories-remaining">2000</span>
-                                    <span class="calorie-unit">ккал залишилось</span>
+                                <div class="ring-label">
+                                    <span class="ring-value" id="cal-value-remaining">2000</span>
+                                    <span class="ring-desc">ккал залишилось</span>
                                 </div>
                             </div>
 
-                            <div class="calorie-stats-grid">
-                                <div class="mini-stat">
-                                    <span class="material-symbols-rounded icon-color-rose">restaurant_menu</span>
-                                    <div>
-                                        <span class="mini-stat-label">З'їдено</span>
-                                        <span class="mini-stat-val"><span id="lbl-calories-eaten">0</span> ккал</span>
-                                    </div>
+                            <div class="calories-grid-mini">
+                                <div class="cal-mini-item">
+                                    <span class="cal-mini-title">Норма</span>
+                                    <span class="cal-mini-val" id="cal-target-val">2000</span>
                                 </div>
-                                <div class="mini-stat">
-                                    <span class="material-symbols-rounded icon-color-emerald">fitness_center</span>
-                                    <div>
-                                        <span class="mini-stat-label">Спалено</span>
-                                        <span class="mini-stat-val"><span id="lbl-calories-burned">0</span> ккал</span>
-                                    </div>
-                                </div>
-                                <div class="mini-stat">
-                                    <span class="material-symbols-rounded icon-color-blue">track_changes</span>
-                                    <div>
-                                        <span class="mini-stat-label">Ціль</span>
-                                        <span class="mini-stat-val"><span id="lbl-calories-goal">2000</span> ккал</span>
-                                    </div>
+                                <div class="cal-mini-item">
+                                    <span class="cal-mini-title">З'їдено</span>
+                                    <span class="cal-mini-val" id="cal-consumed-val">0</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="calorie-actions">
-                            <button class="btn btn-secondary btn-small" id="btn-add-food-modal">
-                                <span class="material-symbols-rounded">add</span> Їжа
-                            </button>
-                            <button class="btn btn-secondary btn-small" id="btn-add-workout-modal">
-                                <span class="material-symbols-rounded">add</span> Вправи
-                            </button>
+                        <!-- Macronutrients Panel -->
+                        <div class="macros-panel glass-card">
+                            <h3>Макронутрієнти</h3>
+                            <div class="macros-bars">
+                                <div class="macro-bar-item">
+                                    <div class="macro-bar-label">
+                                        <span>Білків (Пластика)</span>
+                                        <span class="macro-ratio-display" id="macro-protein-ratio">0г / 140г</span>
+                                    </div>
+                                    <div class="macro-progress-track">
+                                        <div class="macro-progress-fill protein-fill" id="macro-protein-fill" style="width: 0%;"></div>
+                                    </div>
+                                </div>
+                                <div class="macro-bar-item">
+                                    <div class="macro-bar-label">
+                                        <span>Вуглеводів (Енергія)</span>
+                                        <span class="macro-ratio-display" id="macro-carbs-ratio">0г / 220г</span>
+                                    </div>
+                                    <div class="macro-progress-track">
+                                        <div class="macro-progress-fill carbs-fill" id="macro-carbs-fill" style="width: 0%;"></div>
+                                    </div>
+                                </div>
+                                <div class="macro-bar-item">
+                                    <div class="macro-bar-label">
+                                        <span>Жирів (Баланс)</span>
+                                        <span class="macro-ratio-display" id="macro-fat-ratio">0г / 60г</span>
+                                    </div>
+                                    <div class="macro-progress-track">
+                                        <div class="macro-progress-fill fat-fill" id="macro-fat-fill" style="width: 0%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hydration Panel -->
+                        <div class="water-panel glass-card">
+                            <div class="water-header">
+                                <div class="water-title">
+                                    <h3>Водний баланс 💧</h3>
+                                    <p id="water-progress-text">Випито: 0 / 8 склянок</p>
+                                </div>
+                                <div class="water-actions">
+                                    <button class="btn-water" id="btn-water-minus" title="Зменшити воду">-</button>
+                                    <button class="btn-water" id="btn-water-plus" title="Додати воду">+</button>
+                                </div>
+                            </div>
+                            <div class="water-glasses-row" id="water-glasses-grid">
+                                <!-- Generated Dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Meals Log List -->
+                        <div class="meal-log-container">
+                            <div class="meal-log-header">
+                                <h3>Щоденник їжі</h3>
+                                <button class="btn-add-quick" id="btn-trigger-food-modal">+ Додати</button>
+                            </div>
+                            <div class="meals-list" id="meals-list-container">
+                                <!-- Empty state or loaded meals list -->
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Daily Checklist -->
-                    <div class="checklist-card card">
-                        <h3 class="card-title">Чек-лист на сьогодні</h3>
-                        <div class="daily-checklist">
-                            <label class="check-item">
-                                <input type="checkbox" id="chk-water">
-                                <span class="checkbox-custom"></span>
-                                <span class="check-label">Випити 2л води</span>
-                            </label>
-                            <label class="check-item">
-                                <input type="checkbox" id="chk-workout">
-                                <span class="checkbox-custom"></span>
-                                <span class="check-label">Виконати тренування</span>
-                            </label>
-                            <label class="check-item">
-                                <input type="checkbox" id="chk-meals">
-                                <span class="checkbox-custom"></span>
-                                <span class="check-label">Дотриматись ліміту калорій</span>
-                            </label>
+
+                    <!-- PAGE 2: AI COACH CHAT -->
+                    <div id="page-chat" class="app-page">
+                        <div class="chat-wrapper">
+                            <!-- Messages Window -->
+                            <div class="chat-messages" id="chat-messages-container">
+                                <!-- Populated dynamically -->
+                            </div>
+
+                            <!-- Suggestion Chips -->
+                            <div class="chat-suggestion-chips-wrapper">
+                                <div class="chat-suggestion-chips" id="chat-suggestion-chips">
+                                    <!-- Populated dynamically based on user state -->
+                                </div>
+                            </div>
+
+                            <!-- Chat Input Bar -->
+                            <div class="chat-input-bar">
+                                <input type="text" id="chat-input" placeholder="Запитай щось про тренування..." autocomplete="off">
+                                <button id="chat-send-btn" title="Надіслати повідомлення">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Today's Logs -->
-                    <div class="logs-card card">
-                        <div class="card-header-flex">
-                            <h3 class="card-title">Сьогоднішні записи</h3>
-                            <span class="logs-count" id="lbl-logs-count">0 записів</span>
+
+                    <!-- PAGE 3: GUIDES & PLANS -->
+                    <div id="page-guides" class="app-page">
+                        <!-- Navigation Toggle (Workouts / Nutrition) -->
+                        <div class="guides-tabs-nav">
+                            <button class="tab-guide-btn active" id="tab-guide-workout">🤸‍♀️ Тренування</button>
+                            <button class="tab-guide-btn" id="tab-guide-nutrition">🥗 Харчування</button>
                         </div>
+
+                        <!-- SECTION A: WORKOUT GUIDE LIST -->
+                        <div class="guide-section active" id="guide-section-workout">
+                            <div class="guide-intro-card glass-card">
+                                <h3 id="workout-program-title">Твоя AI Програма</h3>
+                                <p id="workout-program-desc">Заряджена програма на базі твого онбордингу</p>
+                            </div>
+
+                            <div class="workouts-stack" id="workouts-list-container">
+                                <!-- Populated dynamically based on Goal selection -->
+                            </div>
+                        </div>
+
+                        <!-- SECTION B: NUTRITION GUIDE LIST -->
+                        <div class="guide-section" id="guide-section-nutrition">
+                            <div class="guide-intro-card glass-card">
+                                <h3>AI Меню на сьогодні</h3>
+                                <p>Ідеальне меню для енергії та досягнення твоєї ваги</p>
+                            </div>
+
+                            <div class="diet-stack" id="diet-list-container">
+                                <!-- Populated dynamically based on Goal selection -->
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- PAGE 4: STATISTICS & PROGRESS -->
+                    <div id="page-stats" class="app-page">
                         
-                        <div class="logs-empty" id="logs-empty-state">
-                            <span class="material-symbols-rounded">playlist_add</span>
-                            <p>Записів немає. Додай їжу або тренування вище!</p>
-                        </div>
-                        
-                        <div class="logs-list" id="logs-list-container" style="display: none;">
-                            <!-- Dynamically generated logs go here -->
-                        </div>
-                    </div>
-                </section>
-
-                <!-- VIEW 2: AI COACH (CHAT) -->
-                <section id="chat-view" class="app-view">
-                    <div class="ai-coach-banner">
-                        <div class="coach-avatar-large">
-                            <span class="material-symbols-rounded">psychology</span>
-                            <span class="coach-online-status"></span>
-                        </div>
-                        <div>
-                            <h3 class="coach-name">ШІ-Тренер FitAI</h3>
-                            <p class="coach-role">Твій персональний наставник 24/7</p>
-                        </div>
-                    </div>
-
-                    <div class="chat-area" id="chat-messages-container">
-                        <!-- Chat messages will be generated here -->
-                    </div>
-
-                    <!-- Quick suggestions -->
-                    <div class="quick-suggestions-container">
-                        <div class="quick-suggestions" id="chat-quick-suggestions">
-                            <!-- Populated dynamically based on user goal -->
-                        </div>
-                    </div>
-
-                    <div class="chat-input-bar">
-                        <input type="text" id="chat-input" placeholder="Запитай тренера..." autocomplete="off">
-                        <button id="btn-send-message" class="btn-send">
-                            <span class="material-symbols-rounded">send</span>
-                        </button>
-                    </div>
-                </section>
-
-                <!-- VIEW 3: GUIDES -->
-                <section id="guides-view" class="app-view">
-                    <div class="view-header-tabs">
-                        <button class="guide-tab active" data-tab="training">
-                            <span class="material-symbols-rounded">fitness_center</span> Тренування
-                        </button>
-                        <button class="guide-tab" data-tab="nutrition">
-                            <span class="material-symbols-rounded">restaurant</span> Харчування
-                        </button>
-                    </div>
-
-                    <!-- Sub-view 1: Training Guides -->
-                    <div id="guide-training-content" class="guide-sub-view active">
-                        <div class="plan-header-card card">
-                            <div class="plan-title-box">
-                                <span class="material-symbols-rounded plan-icon">auto_awesome</span>
-                                <div>
-                                    <h4 class="plan-type-label">ІНДИВІДУАЛЬНИЙ ПЛАН ШІ</h4>
-                                    <h3 class="plan-title" id="lbl-workout-plan-title">Інтенсивне Схуднення</h3>
+                        <!-- Weight Logger widget -->
+                        <div class="stats-weight-logger glass-card">
+                            <h3>Оновити вагу</h3>
+                            <div class="weight-log-row">
+                                <div class="weight-input-container">
+                                    <input type="number" id="input-log-weight" step="0.1" placeholder="Вага (кг)">
+                                    <span class="weight-unit">кг</span>
                                 </div>
+                                <button class="btn btn-primary" id="btn-log-weight">Записати</button>
                             </div>
-                            <div class="plan-meta-grid">
-                                <div class="meta-item">
-                                    <span class="material-symbols-rounded">schedule</span>
-                                    <span>3 дні на тиждень</span>
-                                </div>
-                                <div class="meta-item">
-                                    <span class="material-symbols-rounded">location_on</span>
-                                    <span id="lbl-workout-location">Вдома</span>
-                                </div>
+                            <div class="weight-target-tips">
+                                <span>Ціль: <strong id="stats-target-weight-val">--</strong> кг</span>
+                                <span id="weight-remaining-tip">Залишилось скинути: -- кг</span>
                             </div>
                         </div>
 
-                        <div class="workout-days-accordion" id="workout-days-container">
-                            <!-- Populated dynamically by JS -->
-                        </div>
-                    </div>
-
-                    <!-- Sub-view 2: Nutrition Guides -->
-                    <div id="guide-nutrition-content" class="guide-sub-view">
-                        <div class="nutrition-header-card card">
-                            <div class="plan-title-box">
-                                <span class="material-symbols-rounded plan-icon">restaurant_menu</span>
-                                <div>
-                                    <h4 class="plan-type-label">РЕКОМЕНДОВАНИЙ РАЦІОН ШІ</h4>
-                                    <h3 class="plan-title" id="lbl-nutrition-plan-title">Збалансований дефіцит</h3>
-                                </div>
+                        <!-- Charts Visualizer -->
+                        <div class="stats-chart-card glass-card">
+                            <div class="chart-header">
+                                <h3>Динаміка ваги</h3>
+                                <span class="chart-legend">📈 Тренд</span>
                             </div>
-                            
-                            <div class="macros-distribution card">
-                                <div class="macros-total-cal">
-                                    <span class="val" id="lbl-nutrition-total-cal">1800</span>
-                                    <span class="lbl">ккал / день</span>
-                                </div>
-                                <div class="macros-bars-container">
-                                    <div class="macro-bar-item">
-                                        <div class="macro-info">
-                                            <span class="macro-name">Білки</span>
-                                            <span class="macro-val" id="lbl-macro-proteins">135г</span>
-                                        </div>
-                                        <div class="macro-progress-bar"><div class="bar-fill bg-rose" id="bar-proteins" style="width: 30%;"></div></div>
-                                    </div>
-                                    <div class="macro-bar-item">
-                                        <div class="macro-info">
-                                            <span class="macro-name">Жири</span>
-                                            <span class="macro-val" id="lbl-macro-fats">60г</span>
-                                        </div>
-                                        <div class="macro-progress-bar"><div class="bar-fill bg-yellow" id="bar-fats" style="width: 30%;"></div></div>
-                                    </div>
-                                    <div class="macro-bar-item">
-                                        <div class="macro-info">
-                                            <span class="macro-name">Вуглеводи</span>
-                                            <span class="macro-val" id="lbl-macro-carbs">180г</span>
-                                        </div>
-                                        <div class="macro-progress-bar"><div class="bar-fill bg-blue" id="bar-carbs" style="width: 40%;"></div></div>
-                                    </div>
-                                </div>
+                            <div class="svg-chart-container" id="svg-chart-container">
+                                <!-- Custom dynamic SVG chart goes here -->
                             </div>
                         </div>
 
-                        <div class="meals-list" id="meals-list-container">
-                            <!-- Populated dynamically by JS -->
-                        </div>
-                    </div>
-                </section>
-
-                <!-- VIEW 4: STATISTICS -->
-                <section id="stats-view" class="app-view">
-                    <div class="stats-overview-grid">
-                        <div class="stat-card card">
-                            <span class="material-symbols-rounded icon-color-rose">local_fire_department</span>
-                            <span class="stat-val" id="lbl-stats-avg-cal">0</span>
-                            <span class="stat-lbl">Середні калорії</span>
-                        </div>
-                        <div class="stat-card card">
-                            <span class="material-symbols-rounded icon-color-emerald">trending_down</span>
-                            <span class="stat-val" id="lbl-stats-weight-change">0 кг</span>
-                            <span class="stat-lbl">Зміна ваги</span>
+                        <!-- Achievements / Badges section -->
+                        <div class="achievements-section">
+                            <h3>Твої Досягнення</h3>
+                            <div class="badges-grid" id="badges-grid-container">
+                                <!-- Populated dynamically from state.js badges map -->
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Weight Chart Card -->
-                    <div class="chart-card card">
-                        <div class="chart-header">
-                            <h3 class="card-title">Трекер ваги</h3>
-                            <button class="btn btn-secondary btn-mini" id="btn-update-weight-modal">
-                                <span class="material-symbols-rounded">edit</span> Вага
-                            </button>
-                        </div>
-                        <div class="chart-container" id="weight-chart-container">
-                            <!-- Custom SVG Line Chart will render here -->
-                        </div>
-                    </div>
+                </main>
 
-                    <!-- Calories Logged Chart -->
-                    <div class="chart-card card">
-                        <h3 class="card-title">Історія калорій (7 днів)</h3>
-                        <div class="chart-container" id="calories-chart-container">
-                            <!-- Custom SVG Bar Chart will render here -->
-                        </div>
-                    </div>
-                </section>
-            </main>
+                <!-- BOTTOM MAIN NAVIGATION BAR -->
+                <nav class="bottom-nav">
+                    <button class="nav-btn active" id="nav-btn-calories" data-page="page-calories">
+                        <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 8v4l3 3"></path>
+                        </svg>
+                        <span>Калорії</span>
+                    </button>
+                    <button class="nav-btn" id="nav-btn-chat" data-page="page-chat">
+                        <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <span>AI Чат</span>
+                    </button>
+                    <button class="nav-btn" id="nav-btn-guides" data-page="page-guides">
+                        <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                        <span>Гайди</span>
+                    </button>
+                    <button class="nav-btn" id="nav-btn-stats" data-page="page-stats">
+                        <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                        <span>Статистика</span>
+                    </button>
+                </nav>
 
-            <!-- Bottom Navigation Bar -->
-            <nav class="app-navigation">
-                <button class="nav-item active" data-view="dashboard">
-                    <span class="material-symbols-rounded">home</span>
-                    <span>Головна</span>
-                </button>
-                <button class="nav-item" data-view="chat">
-                    <span class="material-symbols-rounded">psychology</span>
-                    <span>AI Чат</span>
-                </button>
-                <button class="nav-item" data-view="guides">
-                    <span class="material-symbols-rounded">menu_book</span>
-                    <span>Гайди</span>
-                </button>
-                <button class="nav-item" data-view="stats">
-                    <span class="material-symbols-rounded">monitoring</span>
-                    <span>Статистика</span>
-                </button>
-            </nav>
+            </section>
+
         </div>
+    </div>
 
-        <!-- MODAL: ADD FOOD -->
-        <div class="modal-overlay" id="modal-add-food">
-            <div class="modal-container">
-                <div class="modal-header">
-                    <h3>Додати їжу</h3>
-                    <button class="btn-close-modal" id="btn-close-food"><span class="material-symbols-rounded">close</span></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Presets -->
-                    <div class="presets-section">
-                        <h4 class="section-title">Швидкі пресети</h4>
-                        <div class="presets-list" id="food-presets-container">
-                            <!-- JS will inject presets based on goals -->
-                        </div>
-                    </div>
-                    
-                    <div class="or-separator"><span>або власний запис</span></div>
 
-                    <div class="form-group">
-                        <label for="food-input-name" class="form-label">Назва страви</label>
-                        <input type="text" id="food-input-name" class="form-input" placeholder="напр. Банан, Гречка з куркою">
-                    </div>
-                    <div class="form-group">
-                        <label for="food-input-cal" class="form-label">Калорії (ккал)</label>
-                        <input type="number" id="food-input-cal" class="form-input" placeholder="300">
-                    </div>
-                    <button class="btn btn-primary btn-block" id="btn-save-food">Додати в щоденник</button>
-                </div>
+    <!-- ================= MODALS & FLOATING OVERLAYS ================= -->
+    
+    <!-- Food logger modal overlay -->
+    <div class="modal-overlay" id="modal-food-logger">
+        <div class="modal-card glass-card">
+            <div class="modal-header">
+                <h3>Запис їжі 🍎</h3>
+                <button class="modal-close-btn" id="btn-close-food-modal" title="Закрити modal">&times;</button>
             </div>
-        </div>
-
-        <!-- MODAL: ADD WORKOUT -->
-        <div class="modal-overlay" id="modal-add-workout">
-            <div class="modal-container">
-                <div class="modal-header">
-                    <h3>Додати вправу/активність</h3>
-                    <button class="btn-close-modal" id="btn-close-workout"><span class="material-symbols-rounded">close</span></button>
+            <div class="modal-body">
+                <div class="quick-food-tags" id="quick-food-suggestions">
+                    <!-- Quick pre-filled tags rendered dynamically -->
                 </div>
-                <div class="modal-body">
-                    <!-- Presets -->
-                    <div class="presets-section">
-                        <h4 class="section-title">Швидкі пресети</h4>
-                        <div class="presets-list" id="workout-presets-container">
-                            <!-- JS will inject presets -->
-                        </div>
-                    </div>
-                    
-                    <div class="or-separator"><span>або власний запис</span></div>
+                
+                <div class="divider-text">або власна страва</div>
 
+                <div class="form-group">
+                    <label for="custom-food-name">Назва страви / продукту</label>
+                    <input type="text" id="custom-food-name" placeholder="Наприклад: Вівсянка з бананом" autocomplete="off">
+                </div>
+                <div class="metrics-grid">
                     <div class="form-group">
-                        <label for="workout-input-name" class="form-label">Назва активності</label>
-                        <input type="text" id="workout-input-name" class="form-input" placeholder="напр. Ранкова руханка, Біг">
+                        <label for="custom-food-cal">Калорії (ккал)</label>
+                        <input type="number" id="custom-food-cal" min="0" placeholder="0">
                     </div>
                     <div class="form-group">
-                        <label for="workout-input-cal" class="form-label">Спалені калорії (ккал)</label>
-                        <input type="number" id="workout-input-cal" class="form-input" placeholder="250">
+                        <label for="custom-food-protein">Білки (г)</label>
+                        <input type="number" id="custom-food-protein" min="0" placeholder="0">
                     </div>
-                    <button class="btn btn-primary btn-block" id="btn-save-workout">Додати активність</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- MODAL: UPDATE WEIGHT -->
-        <div class="modal-overlay" id="modal-update-weight">
-            <div class="modal-container text-center">
-                <div class="modal-header">
-                    <h3>Зафіксувати вагу</h3>
-                    <button class="btn-close-modal" id="btn-close-weight"><span class="material-symbols-rounded">close</span></button>
-                </div>
-                <div class="modal-body">
-                    <p class="modal-desc">Введи поточну вагу, щоб відстежити динаміку на графіку.</p>
                     <div class="form-group">
-                        <input type="number" id="weight-input-val" class="form-input text-center font-large" placeholder="70.0" step="0.1" min="30" max="250">
+                        <label for="custom-food-carbs">Вуглеводи (г)</label>
+                        <input type="number" id="custom-food-carbs" min="0" placeholder="0">
                     </div>
-                    <button class="btn btn-primary btn-block" id="btn-save-weight">Зберегти</button>
+                    <div class="form-group">
+                        <label for="custom-food-fat">Жири (г)</label>
+                        <input type="number" id="custom-food-fat" min="0" placeholder="0">
+                    </div>
                 </div>
+                <button class="btn btn-primary" id="btn-save-custom-food" style="margin-top: 1rem; width: 100%;">Додати до щоденника</button>
             </div>
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <!-- Active workout trainer player screen -->
+    <div class="workout-player-overlay" id="workout-player-container">
+        <div class="workout-player-header">
+            <div class="w-player-title-block">
+                <span class="player-badge">LIVE ТРЕНУВАННЯ</span>
+                <h2 id="w-player-title">Суперсет силовий</h2>
+            </div>
+            <button class="player-close-btn" id="btn-quit-workout" title="Закрити тренування">&times;</button>
+        </div>
+
+        <div class="workout-player-content">
+            <div class="exercise-card glass-card">
+                <div class="exercise-visual">
+                    <div class="exercise-avatar" id="ex-avatar">⚡</div>
+                    <div class="exercise-ripple-circle"></div>
+                </div>
+                <h3 id="ex-title">Віджимання від підлоги</h3>
+                <p class="ex-desc" id="ex-description">Повільно опускайтесь вниз, утримуючи корпус рівно. Потім потужно витискайте вгору.</p>
+                <div class="ex-target-specs">
+                    <span class="spec-item">🎯 Ціль: <strong id="ex-target-reps">3 підходи х 12 разів</strong></span>
+                </div>
+            </div>
+
+            <!-- Timer / Controls -->
+            <div class="workout-timer-box">
+                <div class="timer-display" id="workout-timer-display">00:00</div>
+                <div class="timer-controls">
+                    <button class="btn-timer-ctrl" id="btn-timer-toggle" title="Пауза / Старт">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Exercise progress controls -->
+            <div class="exercise-nav-footer">
+                <button class="btn btn-secondary" id="btn-ex-prev">Попереднє</button>
+                <button class="btn btn-primary" id="btn-ex-next">Наступне 👉</button>
+            </div>
+            
+            <div class="workout-progress-dots" id="workout-progress-dots-row">
+                <!-- Dots indicators representing steps -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ================= SCRIPTS LOAD ================= -->
+    <script src="js/state.js"></script>
+    <script src="js/onboarding.js"></script>
+    <script src="js/calories.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/guides.js"></script>
+    <script src="js/stats.js"></script>
+    <script src="js/app.js"></script>
+
 </body>
 </html>

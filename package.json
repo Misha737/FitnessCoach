@@ -1,0 +1,19 @@
+{
+  "name": "fitness-coach-app",
+  "version": "1.0.0",
+  "description": "Premium Mobile-first AI Fitness Coach Web Application with Custom SVG Charts, AI Coach, and Calorie Trackers",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y http-server -p 3000 -o"
+  },
+  "keywords": [
+    "fitness",
+    "coach",
+    "calorie",
+    "tracker",
+    "ai",
+    "chat"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}
